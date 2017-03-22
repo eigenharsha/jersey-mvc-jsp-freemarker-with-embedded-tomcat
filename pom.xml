@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>jersey-app</artifactId>
+    <groupId>jersey-mvc</groupId>
+    <artifactId>jersey-mvc-jsp-freemarker-with-embedded-tomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <build>
         <finalName>my-embed-tomcat</finalName>
@@ -25,82 +25,99 @@
         </plugins>
     </build>
 
-   <dependencies>
-       <!-- Dependencies for Jersey Web Application -->
+    <properties>
+        <!--using tomcat 8.x-->
+        <tomcat.version>8.0.26</tomcat.version>
+        <jersey.version>2.25</jersey.version>
+        <jackson.version>2.8.7</jackson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Dependencies for Jersey Web Application -->
+        <!--servlet api 3.x-->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-servlet-api</artifactId>
-            <version>7.0.42</version>
+            <version>${tomcat.version}</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>javax.servlet-api</artifactId>-->
+            <!--<version>3.0.1</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-mvc-freemarker</artifactId>
+            <version>2.5.1</version>
+            <exclusions>
+
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+
+                <!--jersey-mvc-jsp already has jersey-mvc-->
+                <exclusion>
+                    <groupId>org.glassfish.jersey.ext</groupId>
+                    <artifactId>jersey-mvc</artifactId>
+                </exclusion>
+
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-mvc-jsp</artifactId>
             <version>2.5.1</version>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>javax.servlet</groupId>-->
+                    <!--<artifactId>servlet-api</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
-       <dependency>
-           <groupId>org.glassfish.jersey.containers</groupId>
-           <artifactId>jersey-container-servlet</artifactId>
-           <version>2.5.1</version>
-       </dependency>
-       <!-- Dependencies for Embedded Tomcat -->
-       <dependency>
-           <groupId>org.apache.tomcat.embed</groupId>
-           <artifactId>tomcat-embed-core</artifactId>
-           <version>8.0.26</version>
-       </dependency>
-       <dependency>
-           <groupId>org.apache.tomcat.embed</groupId>
-           <artifactId>tomcat-embed-logging-juli</artifactId>
-           <version>8.0.26</version>
-       </dependency>
-       <dependency>
-           <groupId>org.apache.tomcat.embed</groupId>
-           <artifactId>tomcat-embed-jasper</artifactId>
-           <version>8.0.26</version>
-       </dependency>
 
-       <dependency>
-           <!--org.skife.jdbi.v2-->
-           <groupId>org.jdbi</groupId>
-           <artifactId>jdbi</artifactId>
-           <version>2.63.1</version>
-       </dependency>
-       <dependency>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-api</artifactId>
-           <version>1.7.7</version>
-       </dependency>
+        <!-- Dependencies for Embedded Tomcat -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <!--for JspServlet-->
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
 
-       <dependency>
-           <groupId>com.fasterxml.jackson.dataformat</groupId>
-           <artifactId>jackson-dataformat-yaml</artifactId>
-           <version>2.8.0.rc2</version>
-       </dependency>
-       <dependency>
-           <groupId>com.fasterxml.jackson.core</groupId>
-           <artifactId>jackson-databind</artifactId>
-           <version>2.8.3</version>
-       </dependency>
-       <dependency>
-           <groupId>com.fasterxml.jackson.core</groupId>
-           <artifactId>jackson-core</artifactId>
-           <version>2.8.0.rc2</version>
-       </dependency>
-       <dependency>
-           <groupId>com.fasterxml.jackson.core</groupId>
-           <artifactId>jackson-annotations</artifactId>
-           <version>2.8.0.rc2</version>
-       </dependency>
-       <dependency>
-           <groupId>microsoft.com</groupId>
-           <artifactId>sqlJdbc4</artifactId>
-           <version>4.0.2206.100</version>
-       </dependency>
-       <dependency>
-           <groupId>commons-lang</groupId>
-           <artifactId>commons-lang</artifactId>
-           <version>2.6</version>
-       </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
     </dependencies>
 
 

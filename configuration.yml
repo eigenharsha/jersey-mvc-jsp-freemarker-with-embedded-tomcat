@@ -1,0 +1,6 @@
+#setting server configuration
+server:
+  port: 9292
+
+#configure user name
+user: "eigenharsha"

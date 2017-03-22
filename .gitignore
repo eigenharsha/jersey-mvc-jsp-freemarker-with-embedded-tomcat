@@ -1,4 +1,5 @@
 .idea/
 target/
-my-jersey.iml
 tomcat.9000/
+tomcat.9292/
+jersey-mvc.iml
