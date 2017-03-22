@@ -60,11 +60,11 @@ when this application be run then we will be able to access this REST services
 
 | Resource | Endpint |
 | ------ | ------ |
-| Dynamicaly created resource invoked | [http://localhost:9292/api/resource] [PlDb] |
-| Fetch user information from YML file | [http://localhost:9292/api/resource/user] [PlGh] |
-| Freemarker template | [http://localhost:9292/api/resource/freemarker] [PlGd] |
-| Jsp template | [http://localhost:9292/api/resource/jsp] [PlOd] |
-| HTML page | [http://localhost:9292/webapp/index.html] [PlMe] |
+| Dynamicaly created resource invoked | http://localhost:9292/api/resource |
+| Fetch user information from YML file | http://localhost:9292/api/resource/user |
+| Freemarker template | http://localhost:9292/api/resource/freemarker |
+| Jsp template | http://localhost:9292/api/resource/jsp |
+| HTML page | http://localhost:9292/webapp/index.html |
 
 Questions or suggestions? Please don't hesitate to email me at eigenharsha@gmail.com
 
