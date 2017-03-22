@@ -58,9 +58,9 @@ $ mvn clean install
 Deploy the .war file to your web container/application server and launch/access it according to your container's configuration.
 when this application be run then we will be able to access this REST services
 
-| Resource | Endpint |
+| Resource | Endpoint |
 | ------ | ------ |
-| Dynamicaly created resource invoked | http://localhost:9292/api/resource |
+| Dynamically created resource invoked | http://localhost:9292/api/resource |
 | Fetch user information from YML file | http://localhost:9292/api/resource/user |
 | Freemarker template | http://localhost:9292/api/resource/freemarker |
 | Jsp template | http://localhost:9292/api/resource/jsp |
