@@ -47,7 +47,7 @@ public class Resource {
 
         //create FreemarkerResource Instance
         final FreemarkerResource freemarkerResource = new FreemarkerResource("/hello-freemarker.ftl");
-        return freemarkerResource.getTemplate();
+        return freemarkerResource.getTemplate(this.config.getUser());
     }
 
     /**

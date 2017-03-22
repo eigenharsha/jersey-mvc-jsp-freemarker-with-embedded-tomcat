@@ -18,9 +18,9 @@ public class FreemarkerResource {
         this.templatePath = templatePath;
     }
 
-    public Viewable getTemplate() {
+    public Viewable getTemplate(String user) {
         final Map<String, Object> map = new HashMap<String, Object>();
-        map.put("user", "Pavel");
+        map.put("user", user);
         final List<String> list = new ArrayList<String>();
         list.add("item1");
         list.add("item2");
