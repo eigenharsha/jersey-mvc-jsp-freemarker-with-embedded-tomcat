@@ -55,8 +55,16 @@ $ git clone https://github.com/eigenharsha/jersey-mvc-jsp-freemarker-with-embedd
 $ cd jersey-mvc-jsp-freemarker-with-embedded-tomcat
 $ mvn clean install
 ```
-Deploy the .war file to your web container/application server and launch/access it according to your container's configuration.
-when this application be run then we will be able to access this REST services
+
+
+### Deploy on Heroku
+
+I created a `Procfile` for deploying on Heroku. An in-depth tutorial for deploying on Heroku is available [here](https://devcenter.heroku.com/articles/create-a-java-web-application-using-embedded-tomcat).
+```
+$ web: sh target/bin/webapp
+```
+
+When this application be deployed then we will be able to access this REST services
 
 | Resource | Endpoint |
 | ------ | ------ |
