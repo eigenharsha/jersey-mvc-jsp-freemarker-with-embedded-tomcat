@@ -1,5 +1,7 @@
 jersey-mvc-jsp-freemarker-with-embedded-tomcat
 =============================================
+[![Build Status](https://travis-ci.org/eigenharsha/jersey-mvc-jsp-freemarker-with-embedded-tomcat.svg?branch=master)](https://travis-ci.org/eigenharsha/jersey-mvc-jsp-freemarker-with-embedded-tomcat)
+
 This is a simple application that aims to create a REST full web services using embedded tomcat and jersey, for configuration information use yml file. This application also uses jsp and freemarker template that is rendered through REST api call. It mainly focuses to register the object instance to `ResourceConfig` instead of registering class.
 
 ##### Application Used
